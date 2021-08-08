@@ -1,0 +1,222 @@
+// Data Structures ( Basics ) - Recursion
+// Sum Of Maximum and Minimum
+
+
+int sumOfMaxandMin(int arr[],int n) 
+{
+    int max = arr[0]; 
+    int min = arr[0]; 
+    for(int i=1; i<n; i++) { 
+        if(arr[i]>max) { 
+            max = arr[i];
+        }
+        if (arr[i]<min) {
+            min = arr[i];
+        }
+    }
+    return max+min;
+}
+
+
+
+
+________________
+
+
+// Data Structures ( Basics ) - Recursion
+// Longest subarray length
+
+
+int longestLength(int arr[],int n) 
+{
+    int maxLength = 1; 
+    int length = 1; 
+    for(int i=1; i<n; i++) 
+    { 
+        if (arr[i] == arr[i-1]) 
+        { 
+            length++; 
+        } 
+        if(length > maxLength) 
+        { 
+            maxLength = length; 
+        }
+        if(arr[i]!=arr[i-1]) 
+        { 
+            length = 1; 
+        }
+    }
+    return maxLength;
+}
+________________
+// Data Structures ( Basics ) - Recursion
+// Sum Of Product Of Digits
+
+
+int sumOfProductOfDigits(int n1, int n2)
+{
+    //Your code here
+    if(n1 == 0 && n2 == 0) 
+    { 
+        return 0; 
+    }
+return ( ( (n1%10)*(n2%10) ) + sumOfProductOfDigits(n1/10, n2/10) ); 
+}
+
+
+
+
+________________
+
+
+// Data Structures ( Basics ) - Sorting
+
+
+string TieBreak(string names[], int n)
+{
+    // your code here
+    vector<string> S; 
+    for(int i=0; i<n; i++) { 
+        S.push_back(names[i]);
+    }
+    sort(S.begin(), S.end()); 
+    int maxIndex = 0; 
+    int maxCount = 1; 
+    int count = 1; 
+    for(int i=1; i<n; i++) { 
+        if(S[i] == S[i-1]) { 
+            count++;
+        }
+        if(count>maxCount) { 
+            maxCount = count; 
+            maxIndex = i; 
+        }
+        if(S[i] != S[i-1]) { 
+            count = 1;
+        }
+    }
+    return S[maxIndex];
+}
+
+
+________________
+
+
+// Data Structures ( Basics ) - Sorting
+
+
+int avgOfString(string s)
+{
+   //Your code here
+   int sum=0; 
+   for(int i=0; i<s.length(); i++) { 
+       sum += (int)s[i];
+   }
+   return sum/(s.length()) ; 
+}
+
+
+
+
+________________
+
+
+// Data Structures ( Basics ) - Sorting
+
+
+int sumOfDiff(int arr[],int n)
+{
+    //Your code here
+    vector<int> A; 
+    for(int i=0; i<n; i++) { 
+        A.push_back(arr[i]); 
+    } 
+    sort(A.begin(), A.end()); 
+    int start = 0, end = n-1, sum = 0;
+    while(start<end) {
+        sum += abs(A[start]-A[end]); 
+        start++; 
+        end--; 
+    }
+    if(start==end) { 
+        sum += A[start]; 
+    }
+    return sum;
+}
+
+
+________________
+
+
+// Data Structures ( Advanced ) - Arrays
+// Nearest Perfect Square 
+
+
+def nearestPerfectSquare(n):
+    #Your code here
+    sqr = math.sqrt(n)
+    if str(sqr).split('.')[1]=='0':
+        p,q = int(sqr)-1,int(sqr)+1
+        diffp,diffq = abs(p*2 - n),abs(q*2 - n)
+        if min(diffp,diffq) == diffp:
+            return p**2
+        else:
+            return q**2
+    a,b = math.floor(sqr),math.ceil(sqr)
+    sqa,sqb = a*2,b*2
+    if abs(sqa-n) == abs(sqb-n):
+        return max(sqa,sqb)
+    else:
+        minD = min(abs(sqa-n),abs(sqb-n))
+        if minD == abs(sqa-n):
+            return sqa
+        else:
+            return sqb
+________________
+
+
+// Data Structures ( Advanced ) - Arrays
+// Repeating And Missing
+
+
+def repeatingAndMissing(a,n):
+    #Your code here
+    Sum_N = (n * (n + 1)) // 2
+    Sum_NSq = ((n * (n + 1) * 
+                     (2 * n + 1)) // 6)
+      
+    missingNumber, repeating = 0, 0
+      
+    for i in range(len(a)):
+        Sum_N -= a[i]
+        Sum_NSq -= a[i] * a[i]
+          
+    missingNumber = (Sum_N + Sum_NSq // 
+                             Sum_N) // 2
+    repeating = missingNumber - Sum_N
+      
+    print(repeating,missingNumber,end="")
+________________
+
+
+// Data Structures ( Advanced ) - Arrays
+// The Conversion To One 
+
+
+def minOperations(n):
+    #Your code here
+    ans =0
+    while(n!=1):
+        if(n%2==0):
+            n//=2
+        elif(n==3 or n%4 == 1):
+            n=n-1
+        else:
+            n=n+1
+
+
+        ans+=1
+
+
+    return ans
+________________
