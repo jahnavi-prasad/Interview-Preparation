@@ -1,0 +1,436 @@
+// Programming Language 
+// Contest - Quiz
+// Check for Sum
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+        int a, b, c;
+        cin >> a >> b >> c;
+        int f = 0;
+        if(a + b == c)
+        {
+            f = 1;
+        }
+        else if(b + c == a)
+        {
+            f = 1;
+        }
+        else if(a + c == b)
+        {
+            f = 1;
+        }
+        if(f)
+            cout<<"YES\n";
+        else
+            cout<<"NO\n";
+    }
+    return 0;
+}
+
+________________________________
+
+// Programming Language 
+// Contest - Quiz
+// Pairs of adjacent elements
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        for(int i=0; i<n; i++)
+            cin>>a[i];
+        int c = 0;
+        for(int i =0; i<n-1; i++)
+        {
+            if(a[i]+1 == a[i+1])
+                c++;
+        }
+        cout<<c<<endl;
+    }
+    return 0;
+}
+
+________________________________
+
+// Programming Language 
+// Contest - C++ OOPS
+// Cost of String
+
+	specialChar = 0
+	digit = 0
+
+	# str.length() function to count
+	# number of character in given string.
+	for i in range(0, len(str)):
+		
+		ch = str[i]
+
+		if ( (ch >= 'a' and ch <= 'z') or
+			(ch >= 'A' and ch <= 'Z') ):
+
+			# To handle upper case letters
+			ch = ch.lower()
+
+			if (ch == 'a' or ch == 'e' or ch == 'i'
+						or ch == 'o' or ch == 'u'):
+				vowels += 1
+			else:
+				consonant += 1
+		
+		elif (ch >= '0' and ch <= '9'):
+			digit += 1
+		else:
+			specialChar += 1
+	
+	vcost = vowels * 1
+	ccost = consonant * 2
+	ocost = (digit + specialChar) * 3
+	print(vcost + ccost + ocost)
+
+
+# Driver function.
+n = int(input())
+for i in range(0, n):
+    str = input()
+    countCharacterType(str)
+
+________________________________
+
+// Programming Language 
+// Contest - C++ OOPS
+// Check Matrix Sum
+
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,m;
+	    cin>>n;
+	    cin>>m;
+	    int arr[n][m];
+	    int sum1=0,sum2=0;
+	    for(int i=0;i<n;i++)
+	    {
+	        for(int j=0;j<m;j++)
+	        {
+	            cin>>arr[i][j];
+	        }
+	    }
+	    int flag=0;
+	    for(int i=0;i<n;i++)
+	    {
+	        for(int j=0;j<m;j++)
+	        {
+	            sum1 = sum1 + arr[i][j];
+	            sum2 = sum2 + arr[(n-1)-i][j];
+	        }
+	        if(sum1!=sum2)
+	        {
+	            cout<<"NO"<<endl;
+	            flag=1;
+	            break;
+	        }
+	    }
+	    if(flag==0)
+	    cout<<"YES"<<endl;
+	    
+	}
+	return 0;
+}
+
+________________________________
+
+// Data Structures ( Basics ) - Recursion
+// Sum Of Maximum and Minimum
+
+
+int sumOfMaxandMin(int arr[],int n) 
+{
+    int max = arr[0]; 
+    int min = arr[0]; 
+    for(int i=1; i<n; i++) { 
+        if(arr[i]>max) { 
+            max = arr[i];
+        }
+        if (arr[i]<min) {
+            min = arr[i];
+        }
+    }
+    return max+min;
+}
+
+________________________________
+
+// Data Structures ( Basics ) - Recursion
+// Longest subarray length
+
+
+int longestLength(int arr[],int n) 
+{
+    int maxLength = 1; 
+    int length = 1; 
+    for(int i=1; i<n; i++) 
+    { 
+        if (arr[i] == arr[i-1]) 
+        { 
+            length++; 
+        } 
+        if(length > maxLength) 
+        { 
+            maxLength = length; 
+        }
+        if(arr[i]!=arr[i-1]) 
+        { 
+            length = 1; 
+        }
+    }
+    return maxLength;
+}
+
+________________________________
+
+// Data Structures ( Basics ) - Recursion
+// Sum Of Product Of Digits
+
+
+int sumOfProductOfDigits(int n1, int n2)
+{
+    //Your code here
+    if(n1 == 0 && n2 == 0) 
+    { 
+        return 0; 
+    }
+return ( ( (n1%10)*(n2%10) ) + sumOfProductOfDigits(n1/10, n2/10) ); 
+}
+
+________________________________
+
+// Data Structures ( Basics ) - Sorting
+
+
+string TieBreak(string names[], int n)
+{
+    // your code here
+    vector<string> S; 
+    for(int i=0; i<n; i++) { 
+        S.push_back(names[i]);
+    }
+    sort(S.begin(), S.end()); 
+    int maxIndex = 0; 
+    int maxCount = 1; 
+    int count = 1; 
+    for(int i=1; i<n; i++) { 
+        if(S[i] == S[i-1]) { 
+            count++;
+        }
+        if(count>maxCount) { 
+            maxCount = count; 
+            maxIndex = i; 
+        }
+        if(S[i] != S[i-1]) { 
+            count = 1;
+        }
+    }
+    return S[maxIndex];
+}
+
+________________________________
+
+// Data Structures ( Basics ) - Sorting
+
+
+int avgOfString(string s)
+{
+   //Your code here
+   int sum=0; 
+   for(int i=0; i<s.length(); i++) { 
+       sum += (int)s[i];
+   }
+   return sum/(s.length()) ; 
+}
+
+________________________________
+
+// Data Structures ( Basics ) - Sorting
+
+
+int sumOfDiff(int arr[],int n)
+{
+    //Your code here
+    vector<int> A; 
+    for(int i=0; i<n; i++) { 
+        A.push_back(arr[i]); 
+    } 
+    sort(A.begin(), A.end()); 
+    int start = 0, end = n-1, sum = 0;
+    while(start<end) {
+        sum += abs(A[start]-A[end]); 
+        start++; 
+        end--; 
+    }
+    if(start==end) { 
+        sum += A[start]; 
+    }
+    return sum;
+}
+
+________________________________
+
+// Data Structures ( Advanced ) - Arrays
+// Nearest Perfect Square 
+
+
+def nearestPerfectSquare(n):
+    #Your code here
+    sqr = math.sqrt(n)
+    if str(sqr).split('.')[1]=='0':
+        p,q = int(sqr)-1,int(sqr)+1
+        diffp,diffq = abs(p*2 - n),abs(q*2 - n)
+        if min(diffp,diffq) == diffp:
+            return p**2
+        else:
+            return q**2
+    a,b = math.floor(sqr),math.ceil(sqr)
+    sqa,sqb = a*2,b*2
+    if abs(sqa-n) == abs(sqb-n):
+        return max(sqa,sqb)
+    else:
+        minD = min(abs(sqa-n),abs(sqb-n))
+        if minD == abs(sqa-n):
+            return sqa
+        else:
+            return sqb
+
+________________________________
+
+// Data Structures ( Advanced ) - Arrays
+// Repeating And Missing
+
+
+def repeatingAndMissing(a,n):
+    #Your code here
+    Sum_N = (n * (n + 1)) // 2
+    Sum_NSq = ((n * (n + 1) * 
+                     (2 * n + 1)) // 6)
+      
+    missingNumber, repeating = 0, 0
+      
+    for i in range(len(a)):
+        Sum_N -= a[i]
+        Sum_NSq -= a[i] * a[i]
+          
+    missingNumber = (Sum_N + Sum_NSq // 
+                             Sum_N) // 2
+    repeating = missingNumber - Sum_N
+      
+    print(repeating,missingNumber,end="")
+
+________________________________
+
+// Data Structures ( Advanced ) - Arrays
+// The Conversion To One 
+
+
+def minOperations(n):
+    #Your code here
+    ans =0
+    while(n!=1):
+        if(n%2==0):
+            n//=2
+        elif(n==3 or n%4 == 1):
+            n=n-1
+        else:
+            n=n+1
+
+
+        ans+=1
+
+
+    return ans
+    
+________________________________
+
+// Data Structures ( Advanced ) - Hashing
+// K Sum
+
+sort(a,a+n);
+        long long sum=0;
+        for(int i=0;i<k;i++) {
+            sum+=a[i];
+        
+        }
+        return sum;
+        
+________________________________
+
+// Data Structures ( Advanced ) - Hashing
+// XOR Pair
+
+unordered_set<int> s;
+	for(int i=0;i<n;i++)
+	{
+		if(s.find(arr[i]^k)!=s.end())
+		{
+			
+			return true;
+		}
+		s.insert(arr[i]);
+	}
+	
+	return false;
+________________________________
+
+// Data Structures ( Advanced ) - Hashing
+// Kth Smallest Difference
+
+int fun1(int *a,int n,int mid)
+{
+	int res=0;
+	for(int i=0;i<n;++i)
+	{
+		res+=upper_bound(a+i,a+n,a[i]+mid)-(a+i+1);
+	}
+	return res;
+}
+
+int kthDiff(int a[], int n, int k) 
+{ 
+   //Your code here
+   sort(a,a+n);
+	int low=a[1]-a[0];
+	for(int i=1;i<=n-2;++i)
+	low=min(low,a[i+1]-a[i]);
+	
+	int high=a[n-1]-a[0];
+	while(low<high)
+	{
+		int mid=(low+high)/2;
+		if(fun1(a,n,mid)<k)
+		{
+			low=mid+1;
+		
+		}
+		else
+		high=mid;
+	}
+	return low;
+}
