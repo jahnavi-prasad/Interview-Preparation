@@ -295,6 +295,141 @@ int sumOfDiff(int arr[],int n)
 
 ________________________________
 
+// Libraries
+// Contest - Unordered Map
+// Odd The Even Out  
+
+//Back-end complete function Template for C++
+
+/*Function to erase pair with second element as odd
+* v : argument as vector<pair<long long, long long>>
+* Return type : vector<pair<long long, long long>>
+*/
+vector<pair<long long, long long>> vectorIterator(vector<pair<long long, long long>> v){
+    
+    auto it = v.begin();
+    
+    // Iterating through vector and deleting 
+    // pair with second element as odd
+    for(it = v.begin(); it!=v.end();){
+        if(it->second % 2 == 0){
+            it = v.erase(it);
+        }
+        else{
+            it++;
+        }
+    }
+    
+    return v;
+    
+}
+
+________________________________
+
+// Libraries
+// Contest - Unordered Map
+// The Pendulum Swings 
+
+//Back-end complete function Template for C++
+
+
+vector<int> thePendulum(vector<int>v)
+{
+    sort(v.begin(), v.end());
+    
+    list<int>ans;
+    int trigger=0;
+    for(int i = 0; i < v.size();)
+    {
+        
+        if(trigger == 0)
+        {
+            ans.push_front(v[i]);
+            i++;
+            if(i<v.size())
+            {
+                ans.push_front(v[i]);
+                i++;
+            }
+            trigger=1;
+        }
+        else 
+        {
+            ans.push_back(v[i]);
+            i++;
+            if(i<v.size())
+            {
+                ans.push_back(v[i]);
+                i++;
+            }
+            trigger=0;
+        }
+        
+        
+    }
+    v.clear();
+    for(auto i = ans.begin(); i !=ans.end(); i++)
+    v.push_back(*i);
+    
+    return v;
+    
+}
+
+________________________________
+
+// Libraries
+// Contest - Strings and More
+// Are They Anagrams?
+
+bool areAnagram(string str1, string str2)
+{
+    // Get lengths of both strings
+    int n1 = str1.length();
+    int n2 = str2.length();
+ 
+    // If length of both strings is not same, then they
+    // cannot be anagram
+    if (n1 != n2)
+        return false;
+ 
+    // Sort both the strings
+    sort(str1.begin(), str1.end());
+    sort(str2.begin(), str2.end());
+ 
+    // Compare sorted strings
+    for (int i = 0; i < n1; i++)
+        if (str1[i] != str2[i])
+            return false;
+ 
+    return true;
+}
+
+________________________________
+
+// Libraries
+// Contest - Strings and More
+// Longest Consecutive 1s
+
+int maxConsecutiveOnes(int x)
+{
+    // Initialize result
+    int count = 0;
+ 
+    // Count the number of iterations to
+    // reach x = 0.
+    while (x!=0)
+    {
+        // This operation reduces length
+        // of every sequence of 1s by one.
+        x = (x & (x << 1));
+ 
+        count++;
+    }
+ 
+    return count;
+}
+________________________________
+
 // Data Structures ( Advanced ) - Arrays
 // Nearest Perfect Square 
 
