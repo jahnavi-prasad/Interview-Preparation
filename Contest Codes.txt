@@ -378,6 +378,53 @@ vector<int> thePendulum(vector<int>v)
 ________________________________
 
 // Libraries
+// Contest - Mutating STL Algorithms
+// Rotation
+
+vector<int> leftRotateK(vector<int>v,int k)
+{
+    // Rotate vector left k times. 
+    int rotL=k%v.size(); 
+    
+    // std::rotate function 
+    rotate(v.begin(), v.begin()+rotL, v.end()); 
+    return v;
+}
+
+________________________________
+
+// Libraries
+// Contest - Mutating STL Algorithms
+// Greater Permutations
+
+int totalGreaterPermutations(string s)
+{
+    char chars[s.length()];
+    
+    for(int i=0;i<s.length();i++)
+    {
+        chars[i]=s[i];
+    }
+    
+    int counter=0;
+    next_permutation(chars,chars+s.length());
+    string temp(chars);
+    while(s<temp)
+    {
+      //  cout<<temp<<endl;
+        counter++;
+        if(next_permutation(chars,chars+s.length())==false)
+        break;
+        string temp2(chars);
+        temp=temp2;
+    }
+    
+    return counter;
+}
+
+________________________________
+
+// Libraries
 // Contest - Strings and More
 // Are They Anagrams?
 
